@@ -69,8 +69,9 @@ commit_dates.each do |date|
   puts date
   File.open('random_list_of_dates', 'w') { |f| f << str_commit_dates.shuffle.first(12).join("\n") }
   `GIT_AUTHOR_NAME="misprit7" GIT_AUTHOR_EMAIL="xandernaumenko@gmail.com" GIT_AUTHOR_DATE="#{date}" GIT_COMMITTER_DATE="#{date}" git commit -am "#{date}"`
-  if i > 30
+  if i > 14 * 22
     `git push`
+    i=0
   end
   i += 1
 end
